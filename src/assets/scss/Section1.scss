@@ -1,0 +1,99 @@
+.section1 {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  
+    .bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 1s ease;
+  
+      &.visible {
+        opacity: 1;
+        z-index: 2;
+      }
+    }
+  
+    .text-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) translateY(20px);
+      text-align: center;
+      color: white;
+      opacity: 0;
+      z-index: 3;
+      transition: opacity 1s ease, transform 1s ease;
+  
+      &.visible {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0);
+      }
+  
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+  
+      button {
+        margin: 0 10px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        cursor: pointer;
+        background-color: rgba(255, 165, 0, 0.9);
+        border: none;
+        border-radius: 30px;
+        color: #fff;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+  
+        &:focus {
+          outline: none;
+        }
+  
+        &:hover {
+          background-color: rgba(255, 165, 0, 1);
+        }
+  
+        &:active {
+          transform: translateY(2px);
+        }
+      }
+    }
+  
+    .circle-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 4000px;
+      height: 4000px;
+      background-color: rgba(255, 165, 0, 1);
+      border-radius: 50%;
+      transform: translate(50%, -50%);
+      z-index: 4;
+      pointer-events: none;
+      transition: all 2s ease;
+      opacity: 0;
+      animation: expandCircle 2s ease forwards;
+    }
+  
+    @keyframes expandCircle {
+      0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      100% {
+        width: 4000px;
+        height: 4000px;
+        opacity: 0;
+      }
+    }
+  }
+  
